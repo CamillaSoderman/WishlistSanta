@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-  <h1>Dina wishes</h1>
-  <ul>
-      <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
-      <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
-  </ul>
+
+<ol>
+    <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+    <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
+</ol>
+<button type="submit" formmethod="POST">Skicka till Tomten</button>
 </body>
 </html>

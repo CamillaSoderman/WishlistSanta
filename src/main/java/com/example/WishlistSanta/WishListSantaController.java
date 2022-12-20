@@ -15,6 +15,9 @@ import java.util.ArrayList;
 @Controller
 public class WishListSantaController {
 
+    @Autowired
+    private WishlistRepository repository;
+
     @GetMapping("/")
     String wishlist(HttpSession session, Model model) {
         if (session.getAttribute("wishlist") == null) {
@@ -25,7 +28,7 @@ public class WishListSantaController {
     }
 
     @PostMapping("/")
-    String wishlistPost(HttpSession session, Model model, @ModelAttribute Wishlist wishlist, String wish) {
+    String wishlistPost(HttpSession session, Model model, @ModelAttribute Wishlist wishlist) {
         Wishlist sessionWishlist = (Wishlist) session.getAttribute("wishlist");
         sessionWishlist.setName(wishlist.getName());
         sessionWishlist.setEmail(wishlist.getEmail());
@@ -42,7 +45,8 @@ public class WishListSantaController {
     }
 
     @GetMapping("/done")
-    String done(@ModelAttribute Wishlist wishlist) {
+    String done(HttpSession session, Model model) {
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "done";
     }
 

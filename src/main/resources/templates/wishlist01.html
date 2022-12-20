@@ -14,12 +14,12 @@
         <input type="text" name="wish">
         <input type="submit">
     </form>
-    <ul>
-        <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+    <ol>
+        <h1 th:unless="${wishlist.name} == null" th:text="${wishlist.name} + 's önskelista'" ></h1>
         <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
-    </ul>
+    </ol>
     <a href="/done">
-    <button type="submit" name="send">Se dina önskningar</button>
+    <button type="submit" name="send">Gå vidare</button>
     </a>
 </body>
 </html>
