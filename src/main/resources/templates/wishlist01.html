@@ -6,17 +6,20 @@
 </head>
 <body>
     <form action="/" th:object="${wishlist}" method="post">
-        <input type="text" th:field="*{name}" />
-        <input type="text" th:field="*{email}" />
+        <input type="text" th:field="*{name}" placeholder="Namn"/>
+        <input type="text" th:field="*{email}" placeholder="E-post"/>
         <input type="submit" name="submit"> <br>
     </form>
-    <form>
-        <input type="text">
+    <form action="/" method="post">
+        <input type="text" name="wish">
         <input type="submit">
     </form>
     <ul>
-
+        <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+        <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
     </ul>
-
+    <a href="/done">
+    <button type="submit" name="send">Se dina önskningar</button>
+    </a>
 </body>
 </html>

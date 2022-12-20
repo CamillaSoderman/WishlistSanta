@@ -21,10 +21,17 @@ public class WishListSantaController {
     }
 
     @PostMapping("/")
-    String wishlistPost(Model model, @ModelAttribute Wishlist wishlist) {
-        model.addAttribute("wishlist", wishlist);
-        System.out.println(wishlist.getName());
+    String wishlistPost(Model model, @ModelAttribute Wishlist wishlist, String wish) {
+        if (wishlist.getWishes() == null) {
+            model.addAttribute("wishes", wishlist.getWishes());
+        }
+        wishlist.getWishes().add(wish);
         return "wishlist01";
+    }
+
+    @GetMapping("/done")
+    String done(@ModelAttribute Wishlist wishlist) {
+        return "done";
     }
 
 }
