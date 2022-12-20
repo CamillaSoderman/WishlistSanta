@@ -5,9 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="#" th:action="@{/}" th:object="${wish}" method="post">
-        <input type="text" value="Namn" th:field="*{name}" > <br>
-        <input type="text" value="E-post" th:field="*{email}"> <br>
+    <form action="/" th:object="${wishlist}" method="post">
+        <input type="text" th:field="*{name}" />
+        <input type="text" th:field="*{email}" />
         <input type="submit" name="submit"> <br>
     </form>
     <form>

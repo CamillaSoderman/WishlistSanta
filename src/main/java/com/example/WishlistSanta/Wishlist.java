@@ -4,12 +4,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-@Service
 public class Wishlist {
 
     private String name;
     private String email;
-    private ArrayList<String> wishes;
+    private ArrayList<String> wishes = new ArrayList<>();
 
     public Wishlist(String name, String email, ArrayList<String> wishes) {
         this.name = name;
