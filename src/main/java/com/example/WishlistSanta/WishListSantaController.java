@@ -9,23 +9,35 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
 public class WishListSantaController {
 
     @GetMapping("/")
-    String wishlist(Model model) {
-        model.addAttribute("wishlist", new Wishlist());
+    String wishlist(HttpSession session, Model model) {
+        if (session.getAttribute("wishlist") == null) {
+            session.setAttribute("wishlist", new Wishlist());
+        }
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "wishlist01";
     }
 
     @PostMapping("/")
-    String wishlistPost(Model model, @ModelAttribute Wishlist wishlist, String wish) {
-        if (wishlist.getWishes() == null) {
-            model.addAttribute("wishes", wishlist.getWishes());
-        }
-        wishlist.getWishes().add(wish);
+    String wishlistPost(HttpSession session, Model model, @ModelAttribute Wishlist wishlist, String wish) {
+        Wishlist sessionWishlist = (Wishlist) session.getAttribute("wishlist");
+        sessionWishlist.setName(wishlist.getName());
+        sessionWishlist.setEmail(wishlist.getEmail());
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        return "wishlist01";
+    }
+
+    @PostMapping("/add")
+    String addWish(HttpSession session, Model model, @RequestParam String wish) {
+        Wishlist wishlist = (Wishlist) session.getAttribute("wishlist");
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        wishlist.addWish(wish);
         return "wishlist01";
     }
 

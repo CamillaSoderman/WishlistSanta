@@ -42,4 +42,8 @@ public class Wishlist {
     public void setWishes(ArrayList<String> wishes) {
         this.wishes = wishes;
     }
+
+    public void addWish(String wish) {
+        this.wishes.add(wish);
+    }
 }
