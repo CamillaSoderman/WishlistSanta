@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+    <form action="#" th:action="@{/}" th:object="${wish}" method="post">
+        <input type="text" value="Namn" th:field="*{name}" > <br>
+        <input type="text" value="E-post" th:field="*{email}"> <br>
+        <input type="submit" name="submit"> <br>
+    </form>
+    <form>
+        <input type="text">
+        <input type="submit">
+    </form>
+    <ul>
+
+    </ul>
 
 </body>
 </html>
