@@ -19,7 +19,7 @@
             </div>
             <div class="box box2">
                 <form action="/" th:object="${wishlist}" method="post">
-                    <input type="text" th:field="*{name}" placeholder="Namn"/>
+                    <input type="text" th:field="*{name}" placeholder="Namn" autofocus/>
                     <input type="text" th:field="*{email}" placeholder="E-post"/>
                     <!--Titta på den här knappen senare-->
                     <input class="inputbutton" type="submit" name="submit"><br>

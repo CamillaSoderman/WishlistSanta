@@ -2,14 +2,42 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tomteverkstaden</title>
+    <link rel="stylesheet" href="/static/03.css" th:href="03.css">
+    <link rel="icon" href="favicon.png">
 </head>
 <body>
+<div class="wrapper">
+    <div class="container">
+        <div class="article article1">
+            <img src="snowman.png" alt="">
+        </div>
+        <div class="article article2">
+            <div class="box box1">
+                <ol>
+                    <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+                </ol>
+            </div>
+            <div class="box box2">
+                <form action="/sent">
+                    <button type="submit">Skicka till Tomten</button>
+                </form></div>
+        </div>
+        <div class="article article3">
+            <img src="santa with Christmas tree.png" alt="">
+        </div>
+    </div>
 
-<ol>
-    <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
-    <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
-</ol>
+    <div class="container-2">
+        <div class="container-2-article-2">
+            <div class="inputcontainer">
+                <ol>
+                    <li class="liststyling" th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 <form action="/add">
     <button type="submit">tillbaka</button>
 </form>

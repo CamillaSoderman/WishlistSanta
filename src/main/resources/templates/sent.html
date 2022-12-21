@@ -2,11 +2,29 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tomteverkstaden</title>
+    <link rel="stylesheet" href="/static/04.css" th:href="04.css">
+    <link rel="icon" href="favicon.png">
 </head>
 <body>
+<div class="wrapper">
+    <div class="container">
+        <div class="article article1">
+            <img src="snowman.png" alt="">
+        </div>
+        <div class="article article2">
+            <div class="box box1">
+                <h1 th:text="'Nu har din lista skickats till tomten, '+${wishlist.name} + '!'"  ></h1>
+            </div>
+            <div class="box box2">
+            </div>
+        </div>
+        <div class="article article3">
+            <img src="santa with Christmas tree.png" alt="">
+        </div>
 
-    <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+    </div>
+</div>
 
 </body>
 </html>
