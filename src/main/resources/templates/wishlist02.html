@@ -2,7 +2,9 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tomteverkstaden</title>
+    <link rel="stylesheet" href="/static/02.css" th:href="02.css">
+    <link rel="icon" href="favicon.png">
 </head>
 <body>
 <!--    <form action="/" th:object="${wishlist}" method="post">-->
@@ -10,16 +12,66 @@
 <!--        <input type="text" th:field="*{email}" placeholder="E-post"/>-->
 <!--        <input type="submit" name="submit"> <br>-->
 <!--    </form>-->
-    <form action="/add" method="post">
-        <input type="text" name="wish">
-        <input type="submit">
-    </form>
-    <ol>
-        <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
-        <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
-    </ol>
-    <a href="/done">
-    <button type="submit" name="send">Gå vidare</button>
-    </a>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="article article1">
+            <img src="snowman.png" alt="">
+        </div>
+        <div class="article article2">
+            <div class="box box1">
+                <ol>
+                    <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+                </ol>
+            </div>
+            <div class="box box2">
+                <form action="/add" method="post">
+                    <input type="text" name="wish" placeholder="Önskning">
+                    <input type="submit">
+                </form></div>
+        </div>
+        <div class="article article3">
+            <img src="santa with Christmas tree.png" alt="">
+        </div>
+    </div>
+
+    <div class="container-2">
+        <div class="container-2-article-2">
+            <div class="inputcontainer">
+                <ol>
+                    <li class="liststyling" th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
+                </ol> </div>
+            <a href="/done">
+                <button type="submit" name="send">Gå vidare</button>
+            </a>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
