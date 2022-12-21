@@ -2,10 +2,7 @@ package com.example.WishlistSanta;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class WishlistRepository {
@@ -53,6 +50,13 @@ public class WishlistRepository {
 
         return lists;
     }
-
+    public Wishlist getWishList(String email) {
+        for (Wishlist book : lists) {
+            if (Objects.equals(book.getEmail(), email)) {
+                return book;
+            }
+        }
+        return null;
+    }
 
 }
