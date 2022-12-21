@@ -3,13 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/01.css" th:href="01.css">
 </head>
 <body>
-    <form action="/" th:object="${wishlist}" method="post">
-        <input type="text" th:field="*{name}" placeholder="Namn"/>
-        <input type="text" th:field="*{email}" placeholder="E-post"/>
-        <input type="submit" name="submit"> <br>
-    </form>
+<div class="wrapper">
+    <div class="container">
+        <div class="article article1">
+            <img src="snowman.png" alt="">
+        </div>
+        <div class="article article2">
+            <div class="box box1">
+                <h1>God jul</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="box box2">
+                <form action="/" th:object="${wishlist}" method="post">
+                    <input type="text" th:field="*{name}" placeholder="Namn"/>
+                    <input type="text" th:field="*{email}" placeholder="E-post"/>
+                    <!--Titta på den här knappen senare-->
+                    <input class="inputbutton" type="submit" name="submit"><br>
+                </form>
+            </div>
+        </div>
+        <div class="article article3">
+            <img src="santa with Christmas tree.png" alt="">
+        </div>
+
+    </div>
+
+</div>
+
 <!--    <form action="/add" method="post">-->
 <!--        <input type="text" name="wish">-->
 <!--        <input type="submit">-->
