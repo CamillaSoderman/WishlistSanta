@@ -24,7 +24,8 @@ public class WishListSantaController {
             session.setAttribute("wishlist", new Wishlist());
         }
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
-        return "wishlist01";
+            return "wishlist01";
+
     }
 
     @PostMapping("/")
@@ -33,9 +34,9 @@ public class WishListSantaController {
         sessionWishlist.setName(wishlist.getName());
         sessionWishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
-        return "wishlist01";
+        return "wishlist02";
     }
-    @GetMapping("/list")
+    @GetMapping("/add")
     String list(HttpSession session, Model model,@ModelAttribute Wishlist wishlist){
         Wishlist sessionWishlist = (Wishlist) session.getAttribute("wishlist");
         sessionWishlist.setName(wishlist.getName());
@@ -43,9 +44,11 @@ public class WishListSantaController {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "wishlist02";
     }
-    @PostMapping("/list")
+    @PostMapping("/add")
     String addWish(HttpSession session, Model model, @RequestParam(required = false) String wish) {
         Wishlist wishlist = (Wishlist) session.getAttribute("wishlist");
+        wishlist.setName(wishlist.getName());
+        wishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         wishlist.addWish(wish);
         return "wishlist02";
@@ -53,8 +56,15 @@ public class WishListSantaController {
 
     @GetMapping("/done")
     String done(HttpSession session, Model model) {
+        Wishlist wishlist = (Wishlist) session.getAttribute("wishlist");
+        wishlist.setName(wishlist.getName());
+        wishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "done";
     }
-
+    @GetMapping("/sent")
+    String sent(HttpSession session, Model model) {
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        return "sent";
+    }
 }

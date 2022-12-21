@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="/list" th:object="${wishlist}" method="post">
+    <form action="/" th:object="${wishlist}" method="post">
         <input type="text" th:field="*{name}" placeholder="Namn"/>
         <input type="text" th:field="*{email}" placeholder="E-post"/>
         <input type="submit" name="submit"> <br>

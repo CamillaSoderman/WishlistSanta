@@ -10,6 +10,11 @@
     <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
     <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
 </ol>
-<button type="submit" formmethod="POST">Skicka till Tomten</button>
+<form action="/add">
+    <button type="submit">tillbaka</button>
+</form>
+<form action="/sent">
+<button type="submit">Skicka till Tomten</button>
+</form>
 </body>
 </html>
