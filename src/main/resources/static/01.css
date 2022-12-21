@@ -9,16 +9,20 @@ margin: auto;
 
 h1 {
 font-family: Nunito;
-font-size: 4rem;
+font-size: 3rem;
 font-weight: 900;
 text-align: center;
 color: white;
+line-height: 3rem;
+transition-duration: 1s;
+margin-bottom: 48px;
 }
 
 p {
 font-family: Nunito;
 font-size: 1rem;
 color: white;
+transition-duration: 1s;
 }
 
 /* ---- WRAPPER ---- */
@@ -64,10 +68,12 @@ position: relative;
 width: 300px;
 height: 300px;
 position: absolute;
+transition-duration: 1.8s;
 
 margin: -100px;
 
 }
+
 
 /* ---- ARTICLE 2 ---- */
 
@@ -96,8 +102,10 @@ position: relative;
 
 .article3 img {
 width: 250px;
-height: 250px;
+height: 300px;
 position: absolute;
+
+transition-duration: 2s;
 
 margin: -100px;
 }
@@ -117,6 +125,7 @@ width: 94%;
 border-color: none;
 border-style: hidden;
 border-radius: 4px;
+outline: none;
 }
 
 .inputbutton {
@@ -126,7 +135,7 @@ border-radius: 8px;
 color: white;
 margin-top: 12px;
 font-weight: 600;
-
+transition-duration: 0.4s;
 
 }
 
