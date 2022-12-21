@@ -5,21 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="/" th:object="${wishlist}" method="post">
+    <form action="/list" th:object="${wishlist}" method="post">
         <input type="text" th:field="*{name}" placeholder="Namn"/>
         <input type="text" th:field="*{email}" placeholder="E-post"/>
         <input type="submit" name="submit"> <br>
     </form>
-    <form action="/add" method="post">
-        <input type="text" name="wish">
-        <input type="submit">
-    </form>
-    <ol>
-        <h1 th:unless="${wishlist.name} == null" th:text="${wishlist.name} + 's önskelista'" ></h1>
-        <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
-    </ol>
-    <a href="/done">
-    <button type="submit" name="send">Gå vidare</button>
-    </a>
+<!--    <form action="/add" method="post">-->
+<!--        <input type="text" name="wish">-->
+<!--        <input type="submit">-->
+<!--    </form>-->
+<!--    <ol>-->
+<!--        <h1 th:unless="${wishlist.name} == null" th:text="${wishlist.name} + 's önskelista'" ></h1>-->
+<!--        <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>-->
+<!--    </ol>-->
+<!--    <a href="/done">-->
+<!--    <button type="submit" name="send">Gå vidare</button>-->
+<!--    </a>-->
 </body>
 </html>

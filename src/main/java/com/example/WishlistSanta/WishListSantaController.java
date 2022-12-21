@@ -35,13 +35,20 @@ public class WishListSantaController {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "wishlist01";
     }
-
-    @PostMapping("/add")
-    String addWish(HttpSession session, Model model, @RequestParam String wish) {
+    @GetMapping("/list")
+    String list(HttpSession session, Model model,@ModelAttribute Wishlist wishlist){
+        Wishlist sessionWishlist = (Wishlist) session.getAttribute("wishlist");
+        sessionWishlist.setName(wishlist.getName());
+        sessionWishlist.setEmail(wishlist.getEmail());
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        return "wishlist02";
+    }
+    @PostMapping("/list")
+    String addWish(HttpSession session, Model model, @RequestParam(required = false) String wish) {
         Wishlist wishlist = (Wishlist) session.getAttribute("wishlist");
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         wishlist.addWish(wish);
-        return "wishlist01";
+        return "wishlist02";
     }
 
     @GetMapping("/done")
