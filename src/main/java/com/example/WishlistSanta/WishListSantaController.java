@@ -65,6 +65,14 @@ public class WishListSantaController {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "sent";
     }
+
+    @PostMapping("/clear")
+    String clearSession(HttpSession session, Model model) {
+        session.setAttribute("wishlist", new Wishlist());
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        return "wishlist01";
+    }
+
     @GetMapping("/santa")
     String santalist(Model model){
         model.addAttribute("santaslist",repository.getlists());

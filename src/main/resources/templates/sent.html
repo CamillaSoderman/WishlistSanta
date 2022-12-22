@@ -17,6 +17,9 @@
                 <h1 th:text="'Nu har din lista skickats till Tomten, '+${wishlist.name} + '!'"  ></h1>
             </div>
             <div class="box box2">
+                    <form action="/clear" method="post">
+                        <button type="submit">Skapa ny önskelista</button>
+                    </form></div>
             </div>
         </div>
         <div class="article article3">
