@@ -27,7 +27,7 @@
             <div class="box box2">
                 <form action="/add" method="post">
                     <input type="text" name="wish" placeholder="Önskning" autofocus >
-                    <input type="submit" value="Lägg till">
+                    <input class="buttonstyle" type="submit" value="Lägg till">
                 </form></div>
         </div>
         <div class="article article3">
@@ -41,9 +41,12 @@
                 <ol>
                     <li class="liststyling" th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
                 </ol> </div>
-            <a href="/done">
-                <button type="submit" name="send">Gå vidare</button>
-            </a>
+            <div class="inputputcontainer2">
+                <a href="/done">
+                    <input class="fixedbutton" type="submit" value="Gå vidare">
+                </a>
+            </div>
+
     </div>
     </div>
 </div>

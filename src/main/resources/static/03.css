@@ -166,6 +166,10 @@ background-image: url("scroll.svg");
 width: 500px;
 height: 600px;
 
+backgroundcolor: green;
+display: flex;
+
+position: relative;
 }
 
 .inputcontainer {
@@ -173,7 +177,21 @@ margin-top: 146px;
 display: flex;
 flex-direction: column;
 margin-left: 85px;
+flex: 0 0 90%;
 }
+
+.inputputcontainer2 {
+flex: 0 0 10%;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+
+}
+
+.fixedbutton {
+position: fixed;
+}
+
 
 .liststyling{
 font-size: 1.5rem;
@@ -182,5 +200,70 @@ margin: 4px;
 
 }
 
+/* ---- BUTTON STYLE ---- */
 
+.buttonstyle {
+background-color: #199017;
+width: 100%;
+border-radius: 8px;
+color: white;
+margin-top: 12px;
+font-weight: 600;
+transition-duration: 0.4s;
 
+font-family: Nunito;
+font-size: 1rem;
+}
+
+.buttonstyle:hover {
+background-color: white;
+color: #199017;
+font-weight: 600;
+
+}
+
+button {
+background-color: #199017;
+width: 25%;
+border-radius: 8px;
+color: white;
+margin-top: 12px;
+font-weight: 600;
+transition-duration: 0.4s;
+
+font-family: Nunito;
+font-size: 1rem;
+}
+
+.buttonstyle:hover {
+background-color: white;
+color: #199017;
+font-weight: 600;
+}
+
+/* ---- BUTTON STYLE FIXED BUTTON ---- */
+
+.fixedbutton {
+background-color: #199017;
+width: 25%;
+border-radius: 8px;
+color: white;
+margin-top: 12px;
+font-weight: 600;
+transition-duration: 0.4s;
+border: solid 2px #199017;
+
+top: 400px;
+right: 50px;
+
+font-family: Nunito;
+font-size: 1rem;
+}
+
+.fixedbutton:hover {
+background-color: white;
+color: #199017;
+font-weight: 600;
+border: solid 2px #199017;
+
+}

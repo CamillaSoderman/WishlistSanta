@@ -138,6 +138,8 @@ margin-top: 12px;
 font-weight: 600;
 transition-duration: 0.4s;
 
+font-family: Nunito;
+font-size: 1rem;
 }
 
 .inputbutton:hover {
