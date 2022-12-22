@@ -27,6 +27,12 @@ transition-duration: 1s;
 
 }
 
+h3 {
+font-family: kalam;
+font-size: 1rem;
+color: #696969;
+}
+
 /* ---- WRAPPER ---- */
 
 .wrapper{

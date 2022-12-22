@@ -268,3 +268,25 @@ font-weight: 600;
 border: solid 2px #199017;
 
 }
+
+
+/* ---- BACK BUTTON STYLE ---- */
+
+.backbutton {
+width: 25%;
+border-radius: 8px;
+color: #199017;
+margin-top: 12px;
+font-weight: 600;
+transition-duration: 0.4s;
+background-color: white;
+border: solid 2px #white;
+}
+
+.backbutton:hover {
+background-color: #199017;
+color: white;
+font-weight: 600;
+border: solid 2px #white;
+
+}
