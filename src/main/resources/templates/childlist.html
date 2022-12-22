@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/static/barn1.css" th:href="barn1.css">
 </head>
 <body>
-<ol>
-    <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
-    <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
-</ol>
+<body>
+        <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+        <ol>
+        <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
+        </ol>
+</body>
+
+
 </body>
 </html>
