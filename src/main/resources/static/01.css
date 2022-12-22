@@ -7,6 +7,8 @@ margin: auto;
 
 /* ---- FONT---- */
 
+
+
 h1 {
 font-family: Nunito;
 font-size: 3rem;
@@ -14,7 +16,7 @@ font-weight: 900;
 text-align: center;
 color: white;
 line-height: 3rem;
-transition-duration: 2s;
+transition-duration: 1s;
 margin-bottom: 48px;
 }
 
@@ -23,7 +25,6 @@ font-family: Nunito;
 font-size: 1rem;
 color: white;
 transition-duration: 1s;
-
 }
 
 /* ---- WRAPPER ---- */
@@ -37,7 +38,6 @@ width: 100%;
 .container{
 display: flex;
 justify-content: center;
-
 background-color: #a83b24;
 }
 
