@@ -57,12 +57,12 @@ public class WishListSantaController {
         wishlist.setName(wishlist.getName());
         wishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
-        repository.lists.add( (Wishlist) model.getAttribute("wishlist"));
         return "done";
     }
     @GetMapping("/sent")
     String sent(HttpSession session, Model model) {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        repository.lists.add( (Wishlist) model.getAttribute("wishlist"));
         return "sent";
     }
 
