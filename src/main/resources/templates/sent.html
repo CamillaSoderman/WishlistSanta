@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,7 +19,7 @@
             </div>
             <div class="box box2">
                     <form action="/clear" method="post">
-                        <button type="submit">Skapa ny önskelista</button>
+                        <input class="fixedbutton" type="submit" value="Skapa ny önskelista">
                     </form></div>
             </div>
         </div>
@@ -27,6 +28,58 @@
         </div>
 
     </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tomteverkstaden</title>
+    <link rel="stylesheet" href="/static/02.css" th:href="02.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+<!--    <form action="/" th:object="${wishlist}" method="post">-->
+<!--        <input type="text" th:field="*{name}" placeholder="Namn"/>-->
+<!--        <input type="text" th:field="*{email}" placeholder="E-post"/>-->
+<!--        <input type="submit" name="submit"> <br>-->
+<!--    </form>-->
+
+<div class="wrapper">
+    <div class="container">
+        <div class="article article1">
+            <img src="snowman.png" alt="">
+        </div>
+        <div class="article article2">
+            <div class="box box1">
+                <ol>
+                    <h1 th:text="'Nu har din lista skickats till Tomten, '+${wishlist.name} + '!'" ></h1>
+                </ol>
+            </div>
+            <div class="box box2">
+                <form action="/clear" method="post">
+                    <input class="fixedbutton" type="submit" value="Skapa ny önskelista">
+                </form></div>
+        </div>
+        <div class="article article3">
+            <img src="santa with Christmas tree.png" alt="">
+        </div>
+    </div>
+
 </div>
 
 </body>
