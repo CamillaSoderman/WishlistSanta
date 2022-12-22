@@ -57,6 +57,7 @@ public class WishListSantaController {
         wishlist.setName(wishlist.getName());
         wishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        repository.lists.add( (Wishlist) model.getAttribute("wishlist"));
         return "done";
     }
     @GetMapping("/sent")
@@ -68,7 +69,7 @@ public class WishListSantaController {
     String santalist(Model model){
         model.addAttribute("santaslist",repository.getlists());
         return "santaslist";
-    }
+}
     @GetMapping("/santa/{email}")
     String chidlist(Model model,@PathVariable String email){
         Wishlist wishlist = repository.getWishList(email);
