@@ -269,3 +269,13 @@ font-weight: 600;
 border: solid 2px #199017;
 
 }
+
+/*-----Skaparnas namn---------*/
+h3{
+color: grey;
+padding: 10px;
+
+font-size: 20px;
+position:absolute;
+bottom:5px;
+}
