@@ -91,4 +91,5 @@ public class WishListSantaController {
         model.addAttribute("wishlist", wishlist);
         return "childlist";
     }
+
 }

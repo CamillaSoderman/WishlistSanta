@@ -61,4 +61,6 @@ public class User {
     public void addWish(Wishes wish) {
         this.wishes.add(wish);
     }
+
+
 }

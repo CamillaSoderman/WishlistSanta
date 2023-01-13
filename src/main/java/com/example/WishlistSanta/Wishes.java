@@ -40,4 +40,9 @@ public class Wishes {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return wish;
+    }
 }
