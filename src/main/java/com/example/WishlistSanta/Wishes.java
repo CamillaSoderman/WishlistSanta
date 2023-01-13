@@ -14,6 +14,9 @@ public class Wishes {
     @JoinColumn(name="user_Id")
     private User user;
 
+    public Wishes(String wish, int i) {
+    }
+
     public User getUser() {
         return user;
     }

@@ -41,11 +41,19 @@ public class WishlistRepository {
         // Generate one wishlist per user and store in object
         for (int i = 0; i < names.length; i++) {
             ArrayList<String> wishes = new ArrayList<>();     // List to store wishes
-            Collections.shuffle(numbers);                           // Shuffle numbers to pick random wishes for each user
+            Collections.shuffle(numbers);   // Shuffle numbers to pick random wishes for each user
+
+            User user = new User(names[i], names[i].toLowerCase() + "@epost.se");
+
             for (int j = 0; j < 5; j++) {
-                wishes.add(wishesArr[numbers.get(j)]);              // Get wish at (random) number and add to list
+                Wishes wish = new Wishes();
+                wish.setUser(user);
+                wish.setWish(wishesArr[numbers.get(j)]);
+                user.addWish(wish);
+
+                wishes.add(wishesArr[numbers.get(j)]); // Get wish at (random) number and add to list
             }
-            lists.add(new User(names[i], names[i].toLowerCase() + "@epost.se"));    // Create object and add to lists array
+            lists.add(user);    // Create object and add to lists array
         }
 
         return lists;
