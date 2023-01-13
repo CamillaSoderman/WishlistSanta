@@ -85,7 +85,7 @@ public class WishListSantaController {
 
     @GetMapping("/santa")
     String santalist(Model model){
-        model.addAttribute("santaslist",repository.getlists());
+        model.addAttribute("santaslist",userRepository.findAll());
         return "santaslist";
 }
     @GetMapping("/santa/{email}")
