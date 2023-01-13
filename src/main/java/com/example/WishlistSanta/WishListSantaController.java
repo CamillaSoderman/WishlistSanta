@@ -90,7 +90,7 @@ public class WishListSantaController {
 }
     @GetMapping("/santa/{email}")
     String chidlist(Model model,@PathVariable String email){
-        User wishlist = repository.getWishList(email);
+        User wishlist = userRepository.findByEmail(email);
         model.addAttribute("wishlist", wishlist);
         return "childlist";
     }
