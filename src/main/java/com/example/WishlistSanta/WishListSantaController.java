@@ -69,10 +69,10 @@ public class WishListSantaController {
     @GetMapping("/sent")
     String sent(HttpSession session, Model model) {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        userRepository.save((User) model.getAttribute("wishlist"));
         for (User u : repository.getlists()) {
             userRepository.save(u);
         }
-        userRepository.save((User) model.getAttribute("wishlist"));
         return "sent";
     }
 
