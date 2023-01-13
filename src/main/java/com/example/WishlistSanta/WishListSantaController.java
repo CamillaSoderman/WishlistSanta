@@ -13,11 +13,16 @@ public class WishListSantaController {
 
     @Autowired
     private WishlistRepository repository;
+    @Autowired
+    WishRepository wishRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/")
     String wishlist(HttpSession session, Model model) {
         if (session.getAttribute("wishlist") == null) {
-            session.setAttribute("wishlist", new User());
+           User user = userRepository.save(new User());
+            session.setAttribute("wishlist",  user);
         }
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
             return "wishlist01";
@@ -42,11 +47,14 @@ public class WishListSantaController {
     }
     @PostMapping("/add")
     String addWish(HttpSession session, Model model, @RequestParam(required = false) String wish) {
-        User wishlist = (User) session.getAttribute("wishlist");
-        wishlist.setName(wishlist.getName());
-        wishlist.setEmail(wishlist.getEmail());
+        Wishes wishes = new Wishes();
+        wishes.setWish(wish);
+        User user = (User) session.getAttribute("wishlist");
+        user.setName(user.getName());
+        user.setEmail(user.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
-        wishlist.addWish(wish);
+        wishes.setUser(user);
+        user.addWish(wishes);
         return "wishlist02";
     }
 
@@ -61,7 +69,7 @@ public class WishListSantaController {
     @GetMapping("/sent")
     String sent(HttpSession session, Model model) {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
-        repository.lists.add( (User) model.getAttribute("wishlist"));
+        userRepository.save((User) model.getAttribute("wishlist"));
         return "sent";
     }
 

@@ -8,7 +8,19 @@ public class Wishes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false)
     private Long id;
+
     private  String wish;
+    @ManyToOne
+    @JoinColumn(name="user_Id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Wishes() {
     }

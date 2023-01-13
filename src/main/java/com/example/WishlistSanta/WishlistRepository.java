@@ -45,7 +45,7 @@ public class WishlistRepository {
             for (int j = 0; j < 5; j++) {
                 wishes.add(wishesArr[numbers.get(j)]);              // Get wish at (random) number and add to list
             }
-            lists.add(new User(names[i], names[i].toLowerCase() + "@epost.se", wishes));    // Create object and add to lists array
+            lists.add(new User(names[i], names[i].toLowerCase() + "@epost.se"));    // Create object and add to lists array
         }
 
         return lists;

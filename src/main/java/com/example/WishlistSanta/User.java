@@ -2,6 +2,8 @@ package com.example.WishlistSanta;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class User {
     @Id
@@ -11,8 +13,9 @@ public class User {
 
     private String name;
     private String email;
-//    @OneToMany
-    private ArrayList<String> wishes = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Wishes> wishes = new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -22,10 +25,10 @@ public class User {
         this.id = id;
     }
 
-    public User(String name, String email, ArrayList<String> wishes) {
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
-        this.wishes = wishes;
+
     }
 
     public User() {
@@ -47,15 +50,15 @@ public class User {
         this.email = email;
     }
 
-    public ArrayList<String> getWishes() {
+    public List<Wishes> getWishes() {
         return wishes;
     }
 
-    public void setWishes(ArrayList<String> wishes) {
+    public void setWishes(List<Wishes> wishes) {
         this.wishes = wishes;
     }
 
-    public void addWish(String wish) {
+    public void addWish(Wishes wish) {
         this.wishes.add(wish);
     }
 }
