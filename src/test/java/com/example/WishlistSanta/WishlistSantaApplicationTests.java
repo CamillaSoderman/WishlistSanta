@@ -1,6 +1,5 @@
 package com.example.WishlistSanta;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ class WishlistSantaApplicationTests {
 
 	@Test
 	public void testWishGenerator()  {
-		ArrayList<Wishlist> lists = new ArrayList<>();
+		ArrayList<User> lists = new ArrayList<>();
 		lists = repository.wishGenerator();
 		String testName = "Nils";
 		Assertions.assertEquals("Nils", lists.get(0).getName());

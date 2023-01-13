@@ -1,22 +1,34 @@
 package com.example.WishlistSanta;
 
-import org.springframework.stereotype.Service;
-
+import javax.persistence.*;
 import java.util.ArrayList;
-
-public class Wishlist {
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id", nullable = false)
+    private Long id;
 
     private String name;
     private String email;
+//    @OneToMany
     private ArrayList<String> wishes = new ArrayList<>();
 
-    public Wishlist(String name, String email, ArrayList<String> wishes) {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User(String name, String email, ArrayList<String> wishes) {
         this.name = name;
         this.email = email;
         this.wishes = wishes;
     }
 
-    public Wishlist() {
+    public User() {
     }
 
     public String getName() {

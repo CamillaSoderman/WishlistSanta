@@ -6,26 +6,26 @@ import java.util.*;
 
 @Service
 public class WishlistRepository {
-    ArrayList<Wishlist> lists;
+    ArrayList<User> lists;
 
 
     public WishlistRepository() {
         lists = new ArrayList<>();
         lists = wishGenerator();
-        for (Wishlist wish : lists) {
+        for (User wish : lists) {
             System.out.println("\nNamn: " + wish.getName() + "\nE-post: " + wish.getEmail() + "\nWishes: " + wish.getWishes());
         }
     }
 
-    public ArrayList<Wishlist> getlists() {
+    public ArrayList<User> getlists() {
         return lists;
     }
 
-    public void addList(Wishlist wishlist) {
+    public void addList(User wishlist) {
         lists.add(wishlist);
     }
 
-    public ArrayList<Wishlist> wishGenerator() {
+    public ArrayList<User> wishGenerator() {
 
         //Arrays of names and possible wishes
         String[] names = new String[]{"Nils", "Erik", "Maja", "Max", "Elin"};
@@ -45,13 +45,13 @@ public class WishlistRepository {
             for (int j = 0; j < 5; j++) {
                 wishes.add(wishesArr[numbers.get(j)]);              // Get wish at (random) number and add to list
             }
-            lists.add(new Wishlist(names[i], names[i].toLowerCase() + "@epost.se", wishes));    // Create object and add to lists array
+            lists.add(new User(names[i], names[i].toLowerCase() + "@epost.se", wishes));    // Create object and add to lists array
         }
 
         return lists;
     }
-    public Wishlist getWishList(String email) {
-        for (Wishlist book : lists) {
+    public User getWishList(String email) {
+        for (User book : lists) {
             if (Objects.equals(book.getEmail(), email)) {
                 return book;
             }

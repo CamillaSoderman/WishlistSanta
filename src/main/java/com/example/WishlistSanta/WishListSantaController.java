@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 @Controller
 public class WishListSantaController {
@@ -18,7 +17,7 @@ public class WishListSantaController {
     @GetMapping("/")
     String wishlist(HttpSession session, Model model) {
         if (session.getAttribute("wishlist") == null) {
-            session.setAttribute("wishlist", new Wishlist());
+            session.setAttribute("wishlist", new User());
         }
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
             return "wishlist01";
@@ -26,16 +25,16 @@ public class WishListSantaController {
     }
 
     @PostMapping("/")
-    String wishlistPost(HttpSession session, Model model, @ModelAttribute Wishlist wishlist) {
-        Wishlist sessionWishlist = (Wishlist) session.getAttribute("wishlist");
+    String wishlistPost(HttpSession session, Model model, @ModelAttribute User wishlist) {
+        User sessionWishlist = (User) session.getAttribute("wishlist");
         sessionWishlist.setName(wishlist.getName());
         sessionWishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "wishlist02";
     }
     @GetMapping("/add")
-    String list(HttpSession session, Model model,@ModelAttribute Wishlist wishlist){
-        Wishlist sessionWishlist = (Wishlist) session.getAttribute("wishlist");
+    String list(HttpSession session, Model model,@ModelAttribute User wishlist){
+        User sessionWishlist = (User) session.getAttribute("wishlist");
         sessionWishlist.setName(wishlist.getName());
         sessionWishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
@@ -43,7 +42,7 @@ public class WishListSantaController {
     }
     @PostMapping("/add")
     String addWish(HttpSession session, Model model, @RequestParam(required = false) String wish) {
-        Wishlist wishlist = (Wishlist) session.getAttribute("wishlist");
+        User wishlist = (User) session.getAttribute("wishlist");
         wishlist.setName(wishlist.getName());
         wishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
@@ -53,7 +52,7 @@ public class WishListSantaController {
 
     @GetMapping("/done")
     String done(HttpSession session, Model model) {
-        Wishlist wishlist = (Wishlist) session.getAttribute("wishlist");
+        User wishlist = (User) session.getAttribute("wishlist");
         wishlist.setName(wishlist.getName());
         wishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
@@ -62,13 +61,13 @@ public class WishListSantaController {
     @GetMapping("/sent")
     String sent(HttpSession session, Model model) {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
-        repository.lists.add( (Wishlist) model.getAttribute("wishlist"));
+        repository.lists.add( (User) model.getAttribute("wishlist"));
         return "sent";
     }
 
     @PostMapping("/clear")
     String clearSession(HttpSession session, Model model) {
-        session.setAttribute("wishlist", new Wishlist());
+        session.setAttribute("wishlist", new User());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "wishlist01";
     }
@@ -80,7 +79,7 @@ public class WishListSantaController {
 }
     @GetMapping("/santa/{email}")
     String chidlist(Model model,@PathVariable String email){
-        Wishlist wishlist = repository.getWishList(email);
+        User wishlist = repository.getWishList(email);
         model.addAttribute("wishlist", wishlist);
         return "childlist";
     }
