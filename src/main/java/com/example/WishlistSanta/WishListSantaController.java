@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Controller
 public class WishListSantaController {
@@ -21,11 +22,11 @@ public class WishListSantaController {
     @GetMapping("/")
     String wishlist(HttpSession session, Model model) {
         if (session.getAttribute("wishlist") == null) {
-           User user = userRepository.save(new User());
-            session.setAttribute("wishlist",  user);
+            User user = userRepository.save(new User());
+            session.setAttribute("wishlist", user);
         }
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
-            return "wishlist01";
+        return "wishlist01";
 
     }
 
@@ -37,14 +38,16 @@ public class WishListSantaController {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "wishlist02";
     }
+
     @GetMapping("/add")
-    String list(HttpSession session, Model model,@ModelAttribute User wishlist){
+    String list(HttpSession session, Model model, @ModelAttribute User wishlist) {
         User sessionWishlist = (User) session.getAttribute("wishlist");
         sessionWishlist.setName(wishlist.getName());
         sessionWishlist.setEmail(wishlist.getEmail());
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "wishlist02";
     }
+
     @PostMapping("/add")
     String addWish(HttpSession session, Model model, @RequestParam(required = false) String wish) {
         Wishes wishes = new Wishes();
@@ -66,6 +69,7 @@ public class WishListSantaController {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
         return "done";
     }
+
     @GetMapping("/sent")
     String sent(HttpSession session, Model model) {
         model.addAttribute("wishlist", session.getAttribute("wishlist"));
@@ -84,13 +88,14 @@ public class WishListSantaController {
     }
 
     @GetMapping("/santa")
-    String santalist(Model model){
-        model.addAttribute("santaslist",userRepository.findAll());
+    String santalist(Model model) {
+        model.addAttribute("santaslist", userRepository.findAll());
         return "santaslist";
-}
-    @GetMapping("/santa/{email}")
-    String chidlist(Model model,@PathVariable String email){
-        User wishlist = userRepository.findByEmail(email);
+    }
+
+    @GetMapping("/santa/{id}")
+    String chidlist(Model model, @PathVariable Long id) {
+        User wishlist = userRepository.findById(id).get();
         model.addAttribute("wishlist", wishlist);
         return "childlist";
     }

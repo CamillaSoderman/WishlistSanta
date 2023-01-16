@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Santa's secret page</title>
     <link rel="stylesheet" href="/static/santaslist.css" th:href="santaslist.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <thead>
     <tr>
         <th>Namn</th>
-        <th>E-Mail</th>
+        <th>ID</th>
     </tr>
     </thead>
 </table>
@@ -21,8 +21,8 @@
         <table cellpadding="0" cellspacing="0" border="0">
     <tbody>
     <tr th:each="list : ${santaslist}" >
-        <td><a th:href="'/santa/' + ${list.email}" th:text="${list.name}"></a></td>
-        <td th:text="${list.email}"></td>
+        <td><a th:href="'/santa/' + ${list.id}" th:text="${list.name}"></a></td>
+        <td th:text="${list.id}"></td>
     </tr>
     </tbody>
 </table>

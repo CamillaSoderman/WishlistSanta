@@ -2,12 +2,13 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${wishlist.name}"></title>
     <link rel="stylesheet" href="/static/barn1.css" th:href="barn1.css">
 </head>
 <body>
 <body>
         <h1 th:text="${wishlist.name} + 's önskelista'" ></h1>
+        <p th:text="${wishlist.email}" ></p><br>
         <ol>
         <li th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
         </ol>
