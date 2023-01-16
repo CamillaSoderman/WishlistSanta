@@ -94,7 +94,7 @@ public class WishListSantaController {
     }
 
     @GetMapping("/santa/{id}")
-    String chidlist(Model model, @PathVariable Long id) {
+    String childlist(Model model, @PathVariable Long id) {
         User wishlist = userRepository.findById(id).get();
         model.addAttribute("wishlist", wishlist);
         return "childlist";

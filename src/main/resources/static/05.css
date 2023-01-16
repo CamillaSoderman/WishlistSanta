@@ -27,6 +27,12 @@ transition-duration: 1s;
 
 }
 
+h3 {
+font-family: kalam;
+font-size: 1rem;
+color: #696969;
+}
+
 /* ---- WRAPPER ---- */
 
 .wrapper{
@@ -69,8 +75,8 @@ position: relative;
 }
 
 .article1 img {
-width: 120px;
-height: 260px;
+width: 170px;
+height: 170px;
 position: absolute;
 transition-duration: 1.8s;
 margin: -100px;
@@ -103,8 +109,8 @@ position: relative;
 }
 
 .article3 img {
-width: 160px;
-height: 250px;
+width: 225px;
+height: 225px;
 position: absolute;
 
 transition-duration: 2s;
@@ -169,6 +175,7 @@ height: 600px;
 backgroundcolor: green;
 display: flex;
 
+
 position: relative;
 }
 
@@ -204,7 +211,7 @@ margin: 4px;
 
 .buttonstyle {
 background-color: #199017;
-width: 25%;
+width: 100%;
 border-radius: 8px;
 color: white;
 margin-top: 12px;
@@ -224,7 +231,7 @@ font-weight: 600;
 
 button {
 background-color: #199017;
-width: 25%;
+width: 100%;
 border-radius: 8px;
 color: white;
 margin-top: 12px;
@@ -268,4 +275,62 @@ color: #199017;
 font-weight: 600;
 border: solid 2px #199017;
 
+}
+
+/*-----Skaparnas namn---------*/
+h3{
+color: grey;
+padding: 10px;
+
+font-size: 20px;
+position:absolute;
+bottom:5px;
+}
+
+/*------Santas list --------*/
+
+
+.inputcontainer-santaslist {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+}
+
+.tbl-content-santaslist {
+font-size: 1.5rem;
+font-family: kalam;
+margin: 4px;
+}
+
+td {
+font-size: 1.5rem;
+font-family: kalam;
+margin: 4px;
+}
+
+.a-wish-styling {
+font-size: 1.5rem;
+font-family: kalam;
+margin: 4px;
+}
+
+/* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: red;
 }
