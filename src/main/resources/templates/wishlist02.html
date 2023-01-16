@@ -39,7 +39,7 @@
         <div class="container-2-article-2">
             <div class="inputcontainer">
                 <ol>
-                    <li class="liststyling" th:each="wish : ${wishlist.wishes}" th:text="${wish}"></li>
+                    <li class="liststyling" th:each="wish : ${wishlist.wishes}"><a th:text="${wish}" th:href="@{/remove(id=${wishStat.index})}"></a> </li>
                 </ol> </div>
             <div class="inputputcontainer2">
                 <a href="/done">

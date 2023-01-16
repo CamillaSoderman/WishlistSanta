@@ -61,6 +61,18 @@ public class WishListSantaController {
         return "wishlist02";
     }
 
+    @GetMapping("/remove")
+    String removeWish(HttpSession session, Model model, @RequestParam int id) {
+        User user = (User) session.getAttribute("wishlist");
+        user.setName(user.getName());
+        user.setEmail(user.getEmail());
+        user.deleteWish(id);
+        model.addAttribute("wishlist", session.getAttribute("wishlist"));
+        return "wishlist02";
+    }
+
+
+
     @GetMapping("/done")
     String done(HttpSession session, Model model) {
         User wishlist = (User) session.getAttribute("wishlist");
